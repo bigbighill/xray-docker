@@ -20,6 +20,8 @@ RUN set -ex \
         && wget -O /temp.zip https://github.com/XTLS/Xray-core/releases/download/$VERSION/Xray-linux-64.zip \
         && unzip /temp.zip /usr/bin \
         && rm /temp.zip \
+	&& rm /usr/bin/geosite.dat \
+	&& rm /usr/bin/geoip.dat
         && chmod +x /usr/bin/xray \
         && setcap 'cap_net_bind_service=+ep' /usr/bin/xray \
         && wget -O /usr/local/share/xray/geosite.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat \
@@ -27,4 +29,4 @@ RUN set -ex \
 
 VOLUME /etc/xray
 ENV TZ=Asia/Shanghai
-CMD ["/usr/bin/sh","wait_for_caddy.sh", "/usr/bin/xray", "-config", "/etc/xray/config.json" ]
+CMD ["/bin/sh","wait_for_caddy.sh", "/usr/bin/xray", "-config", "/etc/xray/config.json" ]
