@@ -13,6 +13,7 @@ ARG VERSION="v1.2.4"
 
 WORKDIR /
 COPY config.json /etc/xray/config.json
+COPY wait_for_caddy.sh /wait_for_caddy.sh
 RUN set -ex \
 	&& apk add --no-cache tzdata ca-certificates wget unzip libcap \
 	&& mkdir -p /var/log/xray /usr/local/share/xray \
