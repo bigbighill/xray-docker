@@ -9,13 +9,16 @@
 FROM alpine:latest
 LABEL maintainer="Teddysun <i@teddysun.com>"
 
+ARG VERSION="v1.2.4"
+
 WORKDIR /
 COPY config.json /etc/xray/config.json
 RUN set -ex \
-	&& apk add --no-cache tzdata ca-certificates \
+	&& apk add --no-cache tzdata ca-certificates wget \
 	&& mkdir -p /var/log/xray /usr/local/share/xray \
 	&& chmod +x /wait_for_caddy.sh \
-        && wget https://github.com/XTLS/Xray-core/releases/download/v1.2.2/Xray-linux-64.zip
+        && wget -O /temp.zip https://github.com/XTLS/Xray-core/releases/download/$VERSION/Xray-linux-64.zip \
+        && tar 
 
 
 	&& wget -O /usr/local/share/xray/geosite.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat \
