@@ -14,7 +14,7 @@ ARG VERSION="v1.2.4"
 WORKDIR /
 COPY config.json /etc/xray/config.json
 RUN set -ex \
-	&& apk add --no-cache tzdata ca-certificates wget unzip \
+	&& apk add --no-cache tzdata ca-certificates wget unzip libcap \
 	&& mkdir -p /var/log/xray /usr/local/share/xray \
 	&& chmod +x /wait_for_caddy.sh \
         && wget -O /temp.zip https://github.com/XTLS/Xray-core/releases/download/$VERSION/Xray-linux-64.zip \
