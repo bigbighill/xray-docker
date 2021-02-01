@@ -14,7 +14,7 @@ WORKDIR /
 
 RUN set -ex \ 
 	&& apk add --no-cache make git && mkdir /release  \
-	&& git clone --branch=$VERSION  https://github.com/XTLS/Xray-core  \
+	&& git clone --branch=$VERSION  https://github.com/XTLS/Xray-core.git  \
 	&& cd Xray-core \
 	&& env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -trimpath -ldflags "-s -w" -o /release/xray ./main  \
 	&& rm /Xray-core -rf \
