@@ -13,11 +13,11 @@ ARG VERSION="v1.2.4"
 WORKDIR /
 
 RUN set -ex \ 
-	&& apk add --no-cache make git && mkdir /release  \
+	&& apk add --no-cache  git && mkdir /release  \
 	&& git clone --branch=$VERSION  https://github.com/XTLS/Xray-core.git  \
-	&& cd Xray-core \
+	&& cd \Xray-core \
 	&& env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -trimpath -ldflags "-s -w" -o /release/xray ./main  \
-	&& rm /Xray-core -rf \
+	&& rm /Xray-core -rf 
 
 
 FROM alpine:latest
