@@ -21,7 +21,7 @@ RUN set -ex \
         && unzip /temp.zip /usr/bin \
         && rm /temp.zip \
 	&& rm /usr/bin/geosite.dat \
-	&& rm /usr/bin/geoip.dat
+	&& rm /usr/bin/geoip.dat \
         && chmod +x /usr/bin/xray \
         && setcap 'cap_net_bind_service=+ep' /usr/bin/xray \
         && wget -O /usr/local/share/xray/geosite.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat \
