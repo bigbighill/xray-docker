@@ -19,7 +19,7 @@ RUN set -ex \
 	&& mkdir -p /var/log/xray /usr/local/share/xray \
 	&& chmod +x /wait_for_caddy.sh \
         && wget -O /temp.zip https://github.com/XTLS/Xray-core/releases/download/$VERSION/Xray-linux-64.zip \
-        && unzip /temp.zip /usr/bin \
+        && unzip /temp.zip -d /usr/bin \
         && rm /temp.zip \
 	&& rm /usr/bin/geosite.dat \
 	&& rm /usr/bin/geoip.dat \
