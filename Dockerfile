@@ -7,7 +7,7 @@
 
 FROM golang:alpine AS builder
 
-ARG VERSION="v1.3.0"
+ARG VERSION="v1.3.1"
 
 WORKDIR /
 
