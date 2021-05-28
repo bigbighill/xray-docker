@@ -32,9 +32,7 @@ RUN set -ex \
         && chmod +x /usr/bin/xray \
         && setcap 'cap_net_bind_service=+ep' /usr/bin/xray \
         && wget -O /usr/local/share/xray/geosite.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat \
-	&& wget -O /usr/local/share/xray/geoip.dat https://github.com/v2fly/geoip/releases/latest/download/geoip.dat \
-	&& mkdir -p /var/run
-# mkdir - p /var/run  for xray shadowsocks domainsocket 	
+	&& wget -O /usr/local/share/xray/geoip.dat https://github.com/v2fly/geoip/releases/latest/download/geoip.dat
 
 VOLUME /etc/xray
 ENV TZ=Asia/Shanghai
